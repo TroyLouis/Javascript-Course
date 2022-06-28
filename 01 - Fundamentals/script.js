@@ -10,3 +10,19 @@ console.log(firstName);
 console.log(`${firstName}'s weight is ${weight} pounds.`);
 
 let PI = 3.1415;
+
+let truthyBool = true;
+console.log(truthyBool);
+
+console.log(typeof truthyBool);
+console.log(typeof PI);
+
+let favoriteFood = "Pizza";
+console.log(favoriteFood);
+favoriteFood = "Pasta";
+console.log(favoriteFood);
+
+let drink;
+console.log(drink);
+drink = "Gatorade";
+console.log(drink);
