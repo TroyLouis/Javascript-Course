@@ -26,3 +26,10 @@ let drink;
 console.log(drink);
 drink = "Gatorade";
 console.log(drink);
+
+a = "9" - 5;
+console.log(a);
+console.log(typeof a);
+
+const birthYear = 1994;
+console.log(birthYear == 1994);
