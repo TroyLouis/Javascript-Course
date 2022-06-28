@@ -1,3 +1,5 @@
+/*
+
 let js = "amazing";
 console.log(100 + 200 + 300);
 
@@ -67,3 +69,59 @@ let johnBMI = johnWeight / johnHeight ** 2;
 console.log(markBMI);
 console.log(johnBMI);
 console.log(markBMI > johnBMI);
+
+// String literals and templates
+
+const myName = "Troy";
+const myJob = "Programmer";
+const myBirthYear = "1994";
+
+const myInformation = `I'm ${myName}, a ${myJob}, and I was born in ${birthYear}.`;
+
+console.log(myInformation);
+
+// if statements
+
+const age = 25;
+if (age >= 21) {
+  console.log("Can Drink");
+} else if (age < 21) {
+  console.log("Can't Drink");
+}
+
+age >= 21 ? console.log("Can Drink") : console.log("Can't Drink");
+
+
+// Type Conversion and Coercion
+
+const inputYear = "1991";
+console.log(Number(inputYear) + 15);
+console.log(2 + 3);
+
+let n = "1" + 1;
+console.log(n);
+n -= 1;
+
+console.log(typeof ("4" - 2));
+
+console.log(5 + 6 + "4" + "3" - 2 + 3 + "6");
+
+// Truthy and Falsy values
+
+const money = 55;
+if (money) {
+  console.group(`You have ${money} dollars.`);
+} else {
+  console.log("Get a job.");
+}
+
+
+// equality opearators
+
+age = 19;
+console.log(age == 19);
+console.log(age == "19");
+console.log(age === 19);
+console.log(age === "19");
+
+*/
