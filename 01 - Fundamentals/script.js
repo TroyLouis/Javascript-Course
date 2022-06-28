@@ -3,6 +3,7 @@ console.log(100 + 200 + 300);
 
 console.log("Troy");
 
+// Data Types
 let firstName = "Troy";
 let weight = 160;
 
@@ -27,9 +28,29 @@ console.log(drink);
 drink = "Gatorade";
 console.log(drink);
 
-a = "9" - 5;
-console.log(a);
-console.log(typeof a);
+// Operators
 
 const birthYear = 1994;
 console.log(birthYear == 1994);
+
+const futureAge = 2037 - 1991;
+console.log(futureAge);
+const ageBob = 2050 - 1992;
+console.log(ageBob);
+console.log(futureAge * 2, ageBob);
+
+let x = 15;
+console.log(x + 5);
+console.log(x);
+x += 5;
+console.log(x);
+
+// Operator Precedence
+
+let a, b;
+
+a = b = 25 - 19;
+console.log(a, b);
+
+const averageAge = (ageBob + futureAge) / 2;
+console.log(averageAge);
