@@ -1,5 +1,6 @@
 "use strict";
 
+// function
 function logger() {
   console.log("My name is Troy.");
 }
@@ -9,6 +10,7 @@ function fruitProcessor(apples, oranges) {
   return juice;
 }
 
+// function with parameters
 const appleJuice = fruitProcessor(5, 0);
 
 function calcAge(birthYear) {
@@ -16,6 +18,7 @@ function calcAge(birthYear) {
   return year - birthYear;
 }
 
+// arrow functions
 const calcAge2 = (birthYear) => 2022 - birthYear;
 
 const yearsUntilRetire = (birthYear) => {
@@ -28,4 +31,20 @@ const nameConcat = (first, last) => {
   return `${first} ${last}`;
 };
 
-console.log(nameConcat("Troy", "Smith"));
+// functions calling other functions using arrow functions
+
+const cutFruitPieces = (fruit) => {
+  return fruit * 4;
+};
+
+const cutVegetables = (vegetable) => {
+  return vegetable * 2;
+};
+
+const makeShake = (apples, oranges) => {
+  const fruitPieces = cutFruitPieces(apples);
+  const vegetablePieces = cutVegetables(oranges);
+  return `Shake made with ${fruitPieces} apples and ${vegetablePieces} oranges.`;
+};
+
+console.log(makeShake(2, 6));
