@@ -124,4 +124,35 @@ console.log(age == "19");
 console.log(age === 19);
 console.log(age === "19");
 
+
+// Switch Statements
+
+const day = "Friday";
+
+switch (day) {
+  case "Monday": // day === 'Monday'
+    console.log("Plan");
+    console.log("Execute");
+    break;
+  case "Tuesday":
+    console.log("Grill");
+    break;
+  case "Wednesday":
+  case "Thursday":
+  case "Friday":
+  case "Saturday":
+  case "Sunday":
+    console.log("Write");
+    break;
+  default:
+    console.log("Not a valid day.");
+}
+
 */
+
+// Coding challenge
+
+let tip;
+let value = 500;
+
+value >= 50 && value <= 300 ? (tip = value * 0.15) : (tip = value * 0.2);
