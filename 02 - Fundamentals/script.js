@@ -62,3 +62,13 @@ const checkWinner = (averageTeamA, averageTeamB) => {
 };
 
 // Arrays
+
+const friends = ["Michael", "Greg", "Steven"];
+
+const years = new Array(1991, 1994, 1995, 1997);
+
+console.log(friends.length);
+
+// only primitive values are immutable
+friends[2] = "Tayveon";
+console.log(friends);
