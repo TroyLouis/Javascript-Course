@@ -47,4 +47,18 @@ const makeShake = (apples, oranges) => {
   return `Shake made with ${fruitPieces} apples and ${vegetablePieces} oranges.`;
 };
 
-console.log(makeShake(2, 6));
+// Coding challenge
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+const checkWinner = (averageTeamA, averageTeamB) => {
+  if (averageTeamA > 2 * averageTeamB) {
+    return `Team A wins ${averageTeamA} to ${averageTeamB} `;
+  } else if (averageTeamB > 2 * averageTeamA) {
+    return `Team B wins ${averageTeamB} to ${averageTeamA}. `;
+  } else {
+    return "No Winner";
+  }
+};
+
+// Arrays
