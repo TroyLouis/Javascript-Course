@@ -72,3 +72,39 @@ console.log(friends.length);
 // only primitive values are immutable
 friends[2] = "Tayveon";
 console.log(friends);
+
+// Array methods
+
+const newLength = friends.push("Selena");
+console.log(friends);
+console.log(newLength);
+
+friends.unshift("Marco");
+console.log(friends);
+
+const popped = friends.pop();
+console.log(popped);
+const unishifted = friends.shift();
+console.log(unishifted);
+
+console.log(friends.indexOf("Tayveon"));
+console.log(friends.includes("Tayveon"));
+console.log(friends.includes("Tayveons"));
+
+// Coding Challenge
+
+const bills = [100, 50, 45, 75, 90, 25, 500, 750];
+
+const calcTip = (values) => {
+  const tips = [];
+  let tip;
+  for (let i = 0; i <= values.length - 1; i++) {
+    values[i] >= 50 && values[i] <= 300
+      ? (tip = values[i] * 0.15)
+      : (tip = values[i] * 0.2);
+    tips.push(tip);
+  }
+  return tips;
+};
+
+console.log(calcTip(bills));
