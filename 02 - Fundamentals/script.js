@@ -107,4 +107,22 @@ const calcTip = (values) => {
   return tips;
 };
 
-console.log(calcTip(bills));
+// Objects
+
+const myObj = {
+  firstName: "Troy",
+  Height: 72,
+  Weight: 160,
+  hobbies: ["Tennis", "Golf", "Beach"],
+};
+
+console.log(myObj.hobbies);
+console.log(myObj["hobbies"]);
+
+const troy = {
+  fName: "Troy",
+  lName: "Boy",
+};
+const nameKey = "Name";
+console.log(troy["f" + nameKey]);
+console.log(troy["l" + nameKey]);
