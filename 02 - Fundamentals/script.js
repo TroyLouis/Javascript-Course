@@ -126,3 +126,38 @@ const troy = {
 const nameKey = "Name";
 console.log(troy["f" + nameKey]);
 console.log(troy["l" + nameKey]);
+
+// Object methods
+
+const person = {
+  firstName: "Bob",
+  lastName: "Smith",
+  birthYear: 2004,
+  job: "student",
+  friends: ["Greg", "Sam", "Sally"],
+  isVaccinated: false,
+
+  // calcage: function () {
+  //   console.log(this);
+  //   return 2022 - this.birthYear;
+  // },
+
+  calcage: function () {
+    this.age = 2022 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} ${this.lastName} was born in ${
+      this.birthYear
+    } and his age is ${this.calcage()} and he has ${
+      this.isVaccinated ? "been" : "not been"
+    } vaccinated.`;
+  },
+};
+console.log(person["calcage"](2004));
+
+console.log(person.calcage());
+console.log(person.age);
+
+console.log(person.getSummary());
