@@ -161,3 +161,22 @@ console.log(person.calcage());
 console.log(person.age);
 
 console.log(person.getSummary());
+
+// Objects coding challenge`3
+
+const bobBmi = {
+  fName: "Bob",
+  lName: "Smith",
+  weight: 80,
+  height: 2,
+  calcBMI: function () {
+    this.bmi = this.weight / this.height ** 2;
+    return this.bmi;
+  },
+  getSummary: function () {
+    this.calcBMI();
+    return `${this.fName} ${this.lName} weighs ${this.weight} kilograms and is ${this.height} meters tall. His BMI is ${this.bmi}. `;
+  },
+};
+
+console.log(bobBmi.getSummary());
