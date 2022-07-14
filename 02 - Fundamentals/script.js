@@ -93,19 +93,19 @@ console.log(friends.includes("Tayveons"));
 
 // Coding Challenge
 
-const bills = [100, 50, 45, 75, 90, 25, 500, 750];
+//const bills = [100, 50, 45, 75, 90, 25, 500, 750];
 
-const calcTip = (values) => {
-  const tips = [];
-  let tip;
-  for (let i = 0; i <= values.length - 1; i++) {
-    values[i] >= 50 && values[i] <= 300
-      ? (tip = values[i] * 0.15)
-      : (tip = values[i] * 0.2);
-    tips.push(tip);
-  }
-  return tips;
-};
+// const calcTip = (values) => {
+//   const tips = [];
+//   let tip;
+//   for (let i = 0; i <= values.length - 1; i++) {
+//     values[i] >= 50 && values[i] <= 300
+//       ? (tip = values[i] * 0.15)
+//       : (tip = values[i] * 0.2);
+//     tips.push(tip);
+//   }
+//   return tips;
+// };
 
 // Objects
 
@@ -180,3 +180,69 @@ const bobBmi = {
 };
 
 console.log(bobBmi.getSummary());
+
+// for loops
+
+for (let i = 1; i <= 3; i++) {
+  console.log(i);
+}
+
+const forArr = ["Troy", "Hotdog", 9, [1, 2, 3, 4], false];
+
+// for (let i = 0; i < forArr.length; i++) {
+//   console.log(forArr[i]);
+// }
+
+// continue and break
+console.log("HI");
+for (let i = 0; i < forArr.length; i++) {
+  if (typeof forArr[i] === "number") break;
+  console.log(forArr[i], typeof forArr[i]);
+}
+
+// while loop
+let k = 1;
+while (k <= 3) {
+  console.log("Hi Mom");
+  k++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}!`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log("Six!");
+}
+
+// coding challenge
+
+const bills = [10, 20, 1, 2, 5, 100, 50, 500, 1000, 200];
+
+const tipCalc = (values) => {
+  const tips = [];
+  const totals = [];
+  let tip;
+  let total;
+  for (let i = 0; i < values.length; i++) {
+    values[i] >= 50 && values[i] <= 300
+      ? (tip = values[i] * 0.15)
+      : (tip = values[i] * 0.2);
+    tips.push(tip);
+  }
+  for (let i = 0; i < tips.length; i++) {
+    total = tips[i] + bills[i];
+    totals.push(total);
+  }
+  return { tips, totals };
+};
+
+const someArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const calcAverages = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) sum += arr[i];
+  return sum / arr.length;
+};
+
+const avg = calcAverages(someArr);
+console.log(avg);
