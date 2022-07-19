@@ -14,3 +14,15 @@ const measureKelvin = (degrees) => {
 };
 
 console.log(measureKelvin(3));
+
+// coding challenge
+
+const tempArray = [10, 15, 26, 19, 5, 0, 31];
+
+const printForecast = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(`The temperature is ${arr[i]}.`);
+  }
+};
+
+printForecast(tempArray);
