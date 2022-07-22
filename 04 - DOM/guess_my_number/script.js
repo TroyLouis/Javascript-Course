@@ -22,12 +22,9 @@ document.querySelector(".check").addEventListener("click", () => {
       if (score > Number(document.querySelector(".highscore").textContent)) {
         document.querySelector(".highscore").textContent = score;
       }
-    } else if (guess > secretNumber) {
-      document.querySelector(".message").textContent = "Too High!";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else if (guess < secretNumber) {
-      document.querySelector(".message").textContent = "Too Low!";
+    } else if (guess !== secretNumber) {
+      document.querySelector(".message").textContent =
+        guess > secretNumber ? "Too High!" : "Too Low!";
       score--;
       document.querySelector(".score").textContent = score;
     }
