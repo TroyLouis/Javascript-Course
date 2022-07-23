@@ -5,16 +5,20 @@ const overlay = document.querySelector(".overlay");
 const btnClose = document.querySelector(".close-modal");
 const btnOpen = document.querySelectorAll(".show-modal");
 
-for (let i = 0; i < btnOpen.length; i++) {
-  btnOpen[i].addEventListener("click", () => {
-    console.log(`Button ${i + 1} clicked`);
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  });
-}
-
-btnClose.addEventListener("click", () => {
-  console.log("Close button clicked");
+const closeModal = () => {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
-});
+};
+
+const openModal = () => {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+for (let i = 0; i < btnOpen.length; i++) {
+  btnOpen[i].addEventListener("click", openModal);
+}
+
+// we are not calling the function because we only want it executed when clicked
+overlay.addEventListener("click", closeModal);
+btnClose.addEventListener("click", closeModal);
