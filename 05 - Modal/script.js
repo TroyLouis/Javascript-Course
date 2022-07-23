@@ -22,3 +22,10 @@ for (let i = 0; i < btnOpen.length; i++) {
 // we are not calling the function because we only want it executed when clicked
 overlay.addEventListener("click", closeModal);
 btnClose.addEventListener("click", closeModal);
+
+// keyboard input
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
