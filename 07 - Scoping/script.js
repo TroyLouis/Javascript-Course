@@ -1,9 +1,14 @@
 "use strict";
 
 function calcAge(birth) {
-  const age = 2037 - birth;
+  const age = 2022 - birth;
+  function printAge() {
+    const output = `You are ${age} and born in ${birth}.`;
+    return output;
+  }
+  console.log(printAge());
   return age;
 }
 
-const firstName = "Greg";
-calcAge(1994);
+const name = "troy";
+console.log(calcAge(1994));
