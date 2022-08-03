@@ -22,16 +22,34 @@ var a = "a";
 let b = "b";
 const c = "c";
 
-console.log(addDecl(1, 2)); // no error
-// console.log(addExpr(1, 2)); cannot access before initialization
-// console.log(addArrow(1, 2)); cannot access before initialization
-// temporal dead zone, google it
-function addDecl(a, b) {
-  return a + b;
+function scopeThis() {
+  console.log(this);
 }
-
-const addExpr = function (a, b) {
-  return a + b;
+const arrowAge = () => {
+  console.log(this);
 };
 
-const addArrow = (a, b) => a + b;
+arrowAge(); // the 'this' of parent scope, doesn't get its own this
+scopeThis(); // Undefined
+
+const dog = {
+  year: 1990,
+  collar: true,
+  calcAge: function () {
+    console.log(2022 - this.year);
+  },
+};
+
+dog.calcAge();
+
+const matilda = {
+  year: 2015,
+};
+// method borrowing
+matilda.calcAge = dog.calcAge;
+// this keyword points to object that is calling the method
+matilda.calcAge();
+
+const f = dog.calcAge;
+console.log(f);
+f();
