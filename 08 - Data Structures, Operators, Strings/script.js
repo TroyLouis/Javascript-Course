@@ -32,6 +32,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}.`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 //destructuring
@@ -101,3 +106,34 @@ console.log(newRestaurant);
 const restaurantCopy = { ...restaurant };
 restaurantCopy.name = "Carl's Jr.";
 console.log(restaurantCopy);
+
+// Rest pattern
+
+const arr2 = [1, 2, ...[3, 4]];
+
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(others);
+
+const [pizza, , pasta, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(otherFood);
+
+// functions with spread, arg and kwarg of python it looks like
+const addFunc = (...numbers) => {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+addFunc(2, 3, 4, 5, 6, 7, 8, 9);
+
+const xArr = [23, 5, 7];
+
+addFunc(...xArr);
+
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
