@@ -38,6 +38,7 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+/*
 
 //destructuring
 const arr = [1, 2, 3];
@@ -137,3 +138,27 @@ const xArr = [23, 5, 7];
 addFunc(...xArr);
 
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
+
+*/
+
+// short circuiting, if first value is truthy, returns it
+
+console.log(3 || "Bob");
+console.log(undefined || false || 0 || "Gray" || null);
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+
+const guests2 = restaurant.numGuests || 10;
+
+console.log(guests2);
+
+// and operator, short circuits for first falsy and returns it
+
+console.log(0 && "Barry");
+console.log("hello" && undefined && false);
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushroom", "cheese");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("mushroom", "cheese");
