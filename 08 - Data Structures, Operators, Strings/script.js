@@ -139,7 +139,6 @@ addFunc(...xArr);
 
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 
-*/
 
 // short circuiting, if first value is truthy, returns it
 
@@ -162,3 +161,90 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza("mushroom", "cheese");
+
+// nullish coalescing operator
+// used because 0 is a falsy value
+restaurant.numGuests = 0;
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+
+
+// logical assignment operators
+
+const rest1 = {
+  name: "Pizza Hut",
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: "Dominoes",
+  owner: "Gary",
+};
+
+rest1.numGuests ??= 10;
+console.log(rest1);
+
+*/
+
+// Challenge
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+
+const [gk, ...fieldPlayers] = players1;
+
+const allPlayers = [...players1, ...players2];
+
+const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+
+const printGoals = function (...names) {
+  console.log(`${names.length} goals were scored`);
+};
+
+printGoals(...game.scored);
+
+team1 < team2 && console.log("Team 1 is more likely to win.");
