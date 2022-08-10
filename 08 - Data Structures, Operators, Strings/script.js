@@ -184,7 +184,6 @@ const rest2 = {
 rest1.numGuests ??= 10;
 console.log(rest1);
 
-*/
 
 // Challenge
 
@@ -248,3 +247,14 @@ const printGoals = function (...names) {
 printGoals(...game.scored);
 
 team1 < team2 && console.log("Team 1 is more likely to win.");
+
+*/
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for of loop
+for (const item of menu) console.log(item);
+
+// index and array
+for (const [i, j] of menu.entries()) {
+  console.log(`${i + 1}: ${j}`);
+}
