@@ -4,6 +4,9 @@
 const flights =
   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
+const hats = 2;
+const weekend = ["fri", "sat", "sun"];
+
 // Data needed for first part of the section
 const restaurant = {
   name: "Classico Italiano",
@@ -11,12 +14,15 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
+  // enhanced object literals
+  hats,
+
   openingHours: {
     thu: {
       open: 12,
       close: 22,
     },
-    fri: {
+    [weekend[0]]: {
       open: 11,
       close: 23,
     },
@@ -26,14 +32,14 @@ const restaurant = {
     },
   },
 
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2}, and ${ing3}.`);
   },
 
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
@@ -248,7 +254,6 @@ printGoals(...game.scored);
 
 team1 < team2 && console.log("Team 1 is more likely to win.");
 
-*/
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
 // for of loop
@@ -258,3 +263,30 @@ for (const item of menu) console.log(item);
 for (const [i, j] of menu.entries()) {
   console.log(`${i + 1}: ${j}`);
 }
+
+*/
+
+// optional chaining
+// if property before question mark exists, open will be returned. If not, returns undefined.
+
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours.Friday?.open);
+
+// multiple option chaining to make sure everything works
+console.log(restaurant.openingHours?.sat?.open);
+
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? "closed!";
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Optional chaining with methods
+
+console.log(restaurant.order?.(0, 1) ?? "Method doesn't exist");
+
+// Optional chaining with arrays
+
+const randArray = [{ taco: "good", burrito: "bad", name: "kerry" }];
+console.log(randArray[0]?.name ?? "user array empty");
