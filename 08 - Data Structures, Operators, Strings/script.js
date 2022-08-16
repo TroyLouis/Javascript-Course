@@ -319,7 +319,7 @@ for (const [key, { open, close }] of entries) {
   console.log(`We are open on ${key} at ${open} and close at ${close}.`);
 }
 
-*/
+
 
 // coding challenge
 
@@ -384,3 +384,45 @@ const niceOdds = Object.entries(game.odds);
 for (const [team, odd] of Object.entries(game.odds)) {
   console.log(`${team} has a ${odd} chance of winning.`);
 }
+
+*/
+
+// Sets, no duplicate values
+
+const orderSet = new Set(["pasta", "pizza", "pasta", "pizza", "hotdog"]);
+
+console.log(orderSet);
+
+//sets have size, arrays have length
+console.log(orderSet.size);
+
+console.log(new Set("Freedom"));
+
+console.log(orderSet.has("pasta" && "bread"));
+
+const staff = ["waiter", "waiter", "waiter", "host", "chef", "manager"];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+// maps
+
+const rest = new Map();
+rest.set("name", "Classico Italiano");
+rest.set(1, "Firenze, Italy");
+rest.set(2, "Lisbon", "Portugal");
+rest.set("categories", ["htodog", "pizza", "guam"]);
+rest.set("open", 11).set(true, "we are open").set(false, "we are closed");
+console.log(rest);
+
+const time = 20;
+
+console.log(rest.get(time > rest.get("open")));
+rest.delete(2);
+console.log(rest.size);
+rest.set([1, 2, 3, 4, 5, 6, 7], "guacamole");
+console.log(rest);
+
+const arrz = [1, 2, 3, 4, 5, 6];
+rest.set(arrz, "keys");
+console.log(rest.get(arrz));
