@@ -264,7 +264,6 @@ for (const [i, j] of menu.entries()) {
   console.log(`${i + 1}: ${j}`);
 }
 
-*/
 
 // optional chaining
 // if property before question mark exists, open will be returned. If not, returns undefined.
@@ -289,4 +288,99 @@ console.log(restaurant.order?.(0, 1) ?? "Method doesn't exist");
 // Optional chaining with arrays
 
 const randArray = [{ taco: "good", burrito: "bad", name: "kerry" }];
-console.log(randArray[0]?.name ?? "user array empty");
+console.log(randArray[1]?.name ?? "user array empty");
+
+// loop objects
+
+for (const day of Object.keys(restaurant.openingHours)) {
+  console.log(day);
+}
+
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+  openStr += `${day},`;
+}
+
+console.log(openStr);
+
+// property VALUES
+
+const values = Object.values(restaurant.openingHours);
+
+//entire object
+
+const entries = Object.entries(restaurant.openingHours);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`We are open on ${key} at ${open} and close at ${close}.`);
+}
+
+*/
+
+// coding challenge
+
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const entries = Object.entries(game.scored);
+
+for (const [goal, name] of entries) {
+  console.log(`${name} scored goal ${parseInt(goal) + 1}!`);
+}
+
+let average = 0;
+const odds = Object.values(game.odds);
+
+for (const odd of odds) {
+  average += odd;
+}
+average /= odds.length;
+console.log(average);
+
+const niceOdds = Object.entries(game.odds);
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  console.log(`${team} has a ${odd} chance of winning.`);
+}
