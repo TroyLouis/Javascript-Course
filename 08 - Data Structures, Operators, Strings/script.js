@@ -385,7 +385,6 @@ for (const [team, odd] of Object.entries(game.odds)) {
   console.log(`${team} has a ${odd} chance of winning.`);
 }
 
-*/
 
 // Sets, no duplicate values
 
@@ -426,3 +425,36 @@ console.log(rest);
 const arrz = [1, 2, 3, 4, 5, 6];
 rest.set(arrz, "keys");
 console.log(rest.get(arrz));
+
+*/
+
+const question = new Map([
+  ["Question", "What is my name?"],
+  [1, "Greg"],
+  [2, "Barry"],
+  [3, "Sam"],
+  ["correct", 3],
+  [true, "correct"],
+  [false, "try again"],
+]);
+
+// convert an object to a map
+console.log(question);
+console.log(Object.entries(restaurant.openingHours));
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(question.get("Question"));
+for (const [key, value] of question) {
+  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+
+const answer = 2;
+
+console.log(question.get(question.get("correct") === answer));
+
+// map to array conversion
+console.log([...question]);
+console.log([...question.keys()]);
+const a = [...question.keys()];
+console.log(typeof a);
+const b = [2, 3, 4];
+console.log(typeof b);
