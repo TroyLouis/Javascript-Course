@@ -31,7 +31,7 @@ const newPassport = function (person) {
 newPassport(ray);
 console.log(ray);
 
-*/
+
 
 //higher order functions
 
@@ -54,3 +54,26 @@ const transformer = function (str, fn) {
 
 transformer("Sweet that is good", upperFirstWord);
 transformer("oh that is not good", upperFirstWord);
+
+
+// returning a function
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeting = greet("Hey");
+
+greeting("Bob!");
+greet("Hello")("Sam");
+
+// arrow func
+
+const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+greetArr("Hey")("Jim");
+
+
+*/
