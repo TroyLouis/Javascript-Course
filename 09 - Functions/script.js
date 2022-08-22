@@ -77,3 +77,50 @@ greetArr("Hey")("Jim");
 
 
 */
+
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  bookings: [],
+  book(flightnum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightnum}.`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightnum}`, name });
+  },
+};
+
+lufthansa.book(239, "Lenny Kravitz");
+
+const eurowings = {
+  airline: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// can't do this because the this keyword points to undefined and not the method
+// book(23, "glen");
+
+// call method
+// first argument is which object you want to point to
+book.call(eurowings, 29, "Petey Webber");
+console.log(eurowings);
+
+book.call(lufthansa, 200, "Bork Growna");
+console.log(lufthansa);
+
+const swiss = {
+  airline: "Swiss Air Lines",
+  iataCode: "LX",
+  bookings: [],
+};
+
+book.call(swiss, 434, "Glen Ivy");
+
+// apply method
+// pretty much the same as call but recieves array of args
+book.apply(swiss, [493, "Mike Hully"]);
+const flightData = [553, "Cherry Garcia"];
+book.apply(swiss, flightData);
