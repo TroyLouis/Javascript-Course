@@ -124,3 +124,49 @@ book.call(swiss, 434, "Glen Ivy");
 book.apply(swiss, [493, "Mike Hully"]);
 const flightData = [553, "Cherry Garcia"];
 book.apply(swiss, flightData);
+
+// probably the best option to use the spread operator and call()
+book.call(swiss, ...flightData);
+
+// bind method
+// bind method takes the 'this' keyword of the object and sets in stone
+const bookEW = book.bind(eurowings);
+bookEW(15, "Steven Williams");
+const bookLX = book.bind(swiss);
+const bookLH = book.bind(lufthansa);
+bookLH(15, "Jerry Mcguire");
+
+// you can bind more arguments, this func will always be flight 23
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23("Glen Livet");
+
+// with event listeners
+lufthansa.planes = 300;
+
+//the 'this' keyword turns into the button element so returns NaN
+lufthansa.buyPlane = function () {
+  this.planes++;
+  console.log(this.planes);
+};
+// add .bind so that the this keyword points to lufthansa
+// very important bind method
+document
+  .querySelector(".buy")
+  .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application (preset parameters)
+const AddTax = (rate, value) => value + value * rate;
+console.log(AddTax(0.1, 200));
+
+// There is no 'this' keyword so you use null for the object with bind
+const salesTax = AddTax.bind(null, 0.075);
+
+// another way of doing it with a function within a function
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT = addTaxRate(0.075);
+console.log(addVAT(100));
