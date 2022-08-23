@@ -221,7 +221,6 @@ poll.displayResults.call({ answers: [5, 2, 3] }, "string");
   // can be used outside of scope
   var notPrivate = 33;
 }
-*/
 
 // Closures
 // we don't create these manually like arrays, happens automatically
@@ -272,3 +271,16 @@ const boardPassengers = function (n, wait) {
 };
 const perGroup = 1000;
 boardPassengers(180, 3);
+
+*/
+
+//coding challenge
+
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+  document.querySelector("body").addEventListener("click", function () {
+    // gets access from the closure
+    header.style.color = "blue";
+  });
+})();
