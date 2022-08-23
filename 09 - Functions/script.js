@@ -170,7 +170,6 @@ const addTaxRate = function (rate) {
 const addVAT = addTaxRate(0.075);
 console.log(addVAT(100));
 
-*/
 
 //coding challenge
 
@@ -204,3 +203,40 @@ document
 
 // using call method to manually set this keyword to new object
 poll.displayResults.call({ answers: [5, 2, 3] }, "string");
+
+
+// immediately invoked function expressions
+// typically used to create scope but not often used due to the {} and const keyword
+(function () {
+  console.log("This will immediately run and only once.");
+})();
+//iife works with arrow functions too, probably better because there will never be a this right?
+(() => {
+  console.log("This will immediately run too.");
+})();
+
+{
+  // can't be used outside this block scope
+  const isPrivate = 23;
+  // can be used outside of scope
+  var notPrivate = 33;
+}
+*/
+
+// Closures
+// we don't create these manually like arrays, happens automatically
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers.`);
+  };
+};
+// execution context is no longer in the stack but the inner-function can access the passenger count variable
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
