@@ -76,7 +76,6 @@ const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
 greetArr("Hey")("Jim");
 
 
-*/
 
 const lufthansa = {
   airline: "Lufthansa",
@@ -170,3 +169,38 @@ const addTaxRate = function (rate) {
 
 const addVAT = addTaxRate(0.075);
 console.log(addVAT(100));
+
+*/
+
+//coding challenge
+
+const poll = {
+  question: "What is your favorite programming language?",
+  options: ["0: Js ", "1: Py ", "2: C# ", "3: C++ "],
+  answers: new Array(4).fill(0),
+  registerNewAnswer() {
+    // Get the answer
+    const answer = Number(
+      prompt(`${this.question}\n${this.options.join("\n")}`)
+    );
+    if (answer < this.answers.length && typeof answer === "number") {
+      this.answers[answer] += 1;
+      console.log(typeof answer);
+    }
+    this.displayResults();
+    this.displayResults("string");
+  },
+  displayResults(type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if (type === "string") {
+      console.log(`Poll results are ${this.answers.join(", ")}`);
+    }
+  },
+};
+document
+  .querySelector(".poll")
+  .addEventListener("click", poll.registerNewAnswer.bind(poll));
+
+// using call method to manually set this keyword to new object
+poll.displayResults.call({ answers: [5, 2, 3] }, "string");
