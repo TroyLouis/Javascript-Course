@@ -239,4 +239,36 @@ booker();
 booker();
 booker();
 
-console.dir(booker);
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 4);
+  };
+};
+g();
+// f closed over the variable environment therefore it can access a and is now a function
+f();
+console.dir(f);
+// f gets the new closure and can access b
+h();
+f();
+console.dir(f);
+
+const boardPassengers = function (n, wait) {
+  // due to the closure it uses this pergroup and not the one above the function call, it has priority over the scope chain
+  const perGroup = n / 3;
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers.`);
+    console.log(`There are three groups, each with ${perGroup} passengers.`);
+  }, wait * 1000);
+  console.log(`Will start boarding in ${wait} seconds.`);
+};
+const perGroup = 1000;
+boardPassengers(180, 3);
