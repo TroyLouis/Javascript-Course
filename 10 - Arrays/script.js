@@ -170,3 +170,33 @@ currenciesUnique.forEach(function (value, _, map) {
 });
 
 */
+
+// coding challenge
+
+const checkDogs = function (dogAgeA, dogAgeB) {
+  //create shalolw copy
+  const dogAgeACopy = dogAgeA.slice();
+  // remove first and last 2 elements
+  dogAgeACopy.splice(0, 1);
+  dogAgeACopy.splice(-2);
+  // concatonate the arrays
+  const dogsAges = dogAgeACopy.concat(dogAgeB);
+  // loop through and print whether dog or puppy
+  // for (let i = 0; i <= dogsAges.length - 1; i++) {
+  //   const age =
+  //     dogsAges[i] > 3
+  //       ? `Dog number ${i + 1} is ${dogsAges[i]} and is an adult!`
+  //       : `Dog number ${i + 1} is ${dogsAges[i]} and is a puppy!`;
+  //   console.log(age);
+  // }
+  // array method vs loop
+  dogsAges.forEach((dog, i) => {
+    if (dog >= 3) {
+      console.log(`Dog number ${i + 1} is ${dogsAges[i]} and is an adult!`);
+    } else {
+      console.log(`Dog number ${i + 1} is ${dogsAges[i]} and is a puppy!`);
+    }
+  });
+};
+
+checkDogs([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 9]);
