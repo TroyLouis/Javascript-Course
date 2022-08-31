@@ -91,6 +91,14 @@ const createUsername = function (accounts) {
 };
 
 createUsername(accounts);
+
+const calcPrintBalance = function (movements) {
+  const balance = movements.reduce((acc, value) => acc + value, 0);
+  labelBalance.textContent = `${balance} EUR`;
+  console.log;
+};
+
+calcPrintBalance(account1.movements);
 /*
 
 
@@ -231,3 +239,13 @@ const deposits = movements.filter(function (mov) {
 console.log(deposits);
 const withdrawals = movements.filter((mov) => mov < 0);
 console.log(withdrawals);
+
+// reduce method
+// accumulator, current  value, index, whole array
+// accumulator accumulates like a rolling snowball (duh)
+// 0 at the end is what value to start counting from
+const balance = movements.reduce(function (acc, curr, i, arr) {
+  console.log(acc, curr);
+  return acc + curr;
+}, 0);
+console.log(balance);
