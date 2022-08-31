@@ -217,7 +217,7 @@ const checkDogs = function (dogAgeA, dogAgeB) {
 };
 
 checkDogs([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 9]);
-*/
+
 const euroToUSD = 1.1;
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -249,3 +249,33 @@ const balance = movements.reduce(function (acc, curr, i, arr) {
   return acc + curr;
 }, 0);
 console.log(balance);
+
+const maxValue = movements.reduce((acc, curr) => {
+  if (acc > curr) {
+    return acc;
+  } else return curr;
+}, 0);
+
+console.log(maxValue);
+*/
+
+// coding challenge
+const avg1 = [5, 2, 4, 1, 15, 8, 3];
+
+const calcAverageHumanAge = function (ages) {
+  const humanAge = ages.map(function (mov) {
+    if (mov <= 2) {
+      return mov * 2;
+    } else return 16 + mov * 4;
+  });
+  const filterAdult = humanAge.filter((value) => value >= 18);
+  const averageAge = filterAdult.reduce(
+    (acc, curr, i, arr) => acc + curr / arr.length,
+    0
+  );
+
+  return averageAge;
+};
+
+console.log(calcAverageHumanAge(avg1));
+console.log(220 / 5);
