@@ -77,8 +77,20 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
-console.log(containerMovements.innerHTML);
 
+const user = "Steven Thomas Williams";
+
+const createUsername = function (accounts) {
+  accounts.forEach((account) => {
+    account.username = account.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+  });
+};
+
+createUsername(accounts);
 /*
 
 
@@ -197,7 +209,6 @@ const checkDogs = function (dogAgeA, dogAgeB) {
 };
 
 checkDogs([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 9]);
-*/
 
 const euroToUSD = 1.1;
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -212,3 +223,5 @@ const movementDescriptions = movements.map((mov, i) => {
   }
 });
 console.log(movementDescriptions);
+
+*/
