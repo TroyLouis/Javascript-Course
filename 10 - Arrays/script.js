@@ -209,7 +209,7 @@ const checkDogs = function (dogAgeA, dogAgeB) {
 };
 
 checkDogs([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 9]);
-
+*/
 const euroToUSD = 1.1;
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -224,4 +224,10 @@ const movementDescriptions = movements.map((mov, i) => {
 });
 console.log(movementDescriptions);
 
-*/
+// filter method
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+const withdrawals = movements.filter((mov) => mov < 0);
+console.log(withdrawals);
