@@ -127,8 +127,6 @@ console.log(arr.slice(-1)[0]);
 console.log(arr.at(-1));
 
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 // older loop
 for (const movement of movements) {
   if (movement > 0) {
@@ -169,7 +167,6 @@ currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}, ${value}`);
 });
 
-*/
 
 // coding challenge
 
@@ -200,3 +197,18 @@ const checkDogs = function (dogAgeA, dogAgeB) {
 };
 
 checkDogs([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 9]);
+*/
+
+const euroToUSD = 1.1;
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const movementsUSD = movements.map((mov) => mov * euroToUSD);
+
+const movementDescriptions = movements.map((mov, i) => {
+  if (mov > 0) {
+    return `Movement ${i + 1}: You deposited ${mov}`;
+  } else {
+    return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+  }
+});
+console.log(movementDescriptions);
