@@ -295,7 +295,6 @@ const calcAverageHumanAge = function (ages) {
 console.log(calcAverageHumanAge(avg1));
 console.log(220 / 5);
 
-*/
 
 // chaining methods
 // can only chain methods after another if they return arrays, which is why reduce is last, it returns a value
@@ -309,3 +308,31 @@ const totalDepositUSD = movements
   .reduce((acc, mov) => acc + mov, 0);
 
 console.log(totalDepositUSD);
+
+
+// coding challenge 3
+
+const testDate = [5, 2, 4, 1, 15, 8, 3];
+
+const calcAverageHumanAgeAgain = (ages) => {
+  const humanAge = ages
+    .map(function (mov) {
+      if (mov <= 2) {
+        return mov * 2;
+      } else return 16 + mov * 4;
+    })
+    .filter((value) => value >= 18)
+    .reduce((acc, curr, i, arr) => acc + curr / arr.length, 0);
+  return humanAge;
+};
+
+console.log(calcAverageHumanAgeAgain(testDate));
+
+*/
+
+// find method
+
+const firstWithdrawal = movements.find((mov) => mov < 0);
+
+const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+console.log(account);
