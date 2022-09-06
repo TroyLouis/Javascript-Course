@@ -98,7 +98,24 @@ const calcPrintBalance = function (movements) {
   console.log;
 };
 
+const calcDisplaySummary = function (movements, intRate) {
+  const inDeposit = movements
+    .filter((movements) => movements > 0)
+    .reduce((acc, value) => acc + value, 0);
+  labelSumIn.textContent = `${inDeposit} EUR`;
+  const outWithdrawal = movements
+    .filter((movements) => movements < 0)
+    .reduce((acc, value) => acc + value, 0);
+  labelSumOut.textContent = `${outWithdrawal} EUR`;
+  const interest = (inDeposit + outWithdrawal) * (intRate * 0.001);
+  labelSumInterest.textContent = `${interest}`;
+};
+
+calcDisplaySummary(account1.movements, account1.interestRate);
 calcPrintBalance(account1.movements);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
 /*
 
 
@@ -219,7 +236,6 @@ const checkDogs = function (dogAgeA, dogAgeB) {
 checkDogs([1, 2, 3, 4, 5], [1, 2, 3, 4, 5, 9]);
 
 const euroToUSD = 1.1;
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 const movementsUSD = movements.map((mov) => mov * euroToUSD);
 
@@ -257,7 +273,6 @@ const maxValue = movements.reduce((acc, curr) => {
 }, 0);
 
 console.log(maxValue);
-*/
 
 // coding challenge
 const avg1 = [5, 2, 4, 1, 15, 8, 3];
@@ -279,3 +294,18 @@ const calcAverageHumanAge = function (ages) {
 
 console.log(calcAverageHumanAge(avg1));
 console.log(220 / 5);
+
+*/
+
+// chaining methods
+// can only chain methods after another if they return arrays, which is why reduce is last, it returns a value
+const eutoUSD = 1.1;
+const totalDepositUSD = movements
+  .filter((mov) => mov > 0)
+  .map((mov, i, arr) => {
+    //console.log(arr);
+    return mov * eutoUSD;
+  })
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositUSD);
