@@ -328,7 +328,6 @@ const calcAverageHumanAgeAgain = (ages) => {
 
 console.log(calcAverageHumanAgeAgain(testDate));
 
-*/
 
 // find method
 
@@ -336,3 +335,53 @@ const firstWithdrawal = movements.find((mov) => mov < 0);
 
 const account = accounts.find((acc) => acc.owner === "Jessica Davis");
 console.log(account);
+
+*/
+
+// coding challenge final
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 250, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+dogs.forEach((dog) => {
+  dog.recFood = Math.round(dog.weight ** 0.75 * 28);
+});
+console.log(dogs);
+
+dogs.forEach((dog) => {
+  if (dog.owners.includes("Sarah")) {
+    dog.curFood * 0.1 + dog.curFood >= dog.recFood ||
+    dog.curFood * 0.1 - dog.curFood >= dog.recFood
+      ? console.log("Feeding a good amount.")
+      : console.log("Feeding too much!");
+  }
+});
+
+const ownersEatTooMuch = dogs
+  .filter(
+    (dog) =>
+      dog.curFood * 0.1 + dog.curFood > dog.recFood ||
+      dog.curFood - dog.curFood * 0.1 > dog.recFood
+  )
+  .map((dog) => dog.owners)
+  .flat();
+
+const ownersEatTooLittle = dogs
+  .filter(
+    (dog) =>
+      dog.curFood * 0.1 + dog.curFood < dog.recFood ||
+      dog.curFood - dog.curFood * 0.1 < dog.recFood
+  )
+  .map((dog) => dog.owners)
+  .flat();
+
+ownersEatTooLittle.forEach((owner) => {
+  console.log(`${owner} eats too much.`);
+});
+ownersEatTooMuch.foreach((owner) => {
+  console.log(`${owner} eats too little.`);
+});
