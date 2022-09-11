@@ -31,3 +31,13 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+console.log(document.head);
+document.querySelector(".header");
+document.querySelectorAll(".section");
+const allSectinos = document.querySelectorAll(".section");
+
+document.getElementById("section--1");
+const allButtons = document.getElementsByTagName("button");
+console.log(allButtons);
+console.log(document.getElementsByClassName("btn"));
