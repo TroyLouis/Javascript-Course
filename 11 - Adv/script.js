@@ -33,7 +33,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 console.log(document.head);
-document.querySelector(".header");
+const header = document.querySelector(".header");
 document.querySelectorAll(".section");
 const allSectinos = document.querySelectorAll(".section");
 
@@ -41,3 +41,19 @@ document.getElementById("section--1");
 const allButtons = document.getElementsByTagName("button");
 console.log(allButtons);
 console.log(document.getElementsByClassName("btn"));
+
+//creating and inserting elements
+//  .insertAdjacentHTML
+
+const message = document.createElement("div");
+message.classList.add("cookie-message");
+// message.textContent = "We use cookies for improved functionality and analytics";
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class ="btn btn--close-cookie"> Got it!</button>';
+header.prepend(message);
+
+document.querySelector(".btn--close-cookie").addEventListener("click", () => {
+  message.remove();
+  // old method instead of .remove()
+  // message.parentElement.removeChild(message);
+});
