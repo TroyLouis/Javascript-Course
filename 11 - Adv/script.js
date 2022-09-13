@@ -57,3 +57,42 @@ document.querySelector(".btn--close-cookie").addEventListener("click", () => {
   // old method instead of .remove()
   // message.parentElement.removeChild(message);
 });
+
+// styles
+message.style.backgroundColor = "#37383d";
+message.style.width = "120%";
+console.log(message.style.height);
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 40 + "px";
+console.log(getComputedStyle(message).height);
+
+const logo = document.querySelector(".nav__logo");
+console.log(logo.className);
+logo.alt = "Beautiful Minimulist Logo";
+console.log(logo.alt);
+
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //   top: s1coords.top + window.pageYOffset,
+  //   behavior: "smooth",
+  // });
+  // only works in modern browsers
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
+const h1 = document.querySelector("h1");
+const alertH1 = (e) => {
+  alert("addEventListener: alert");
+};
+
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
