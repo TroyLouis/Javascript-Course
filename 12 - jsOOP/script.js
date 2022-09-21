@@ -60,3 +60,50 @@ Car.prototype.brake = function (value) {
 const porsche = new Car("Porsche", 150);
 
 porsche.brake(25);
+
+//classes
+
+class PersonCl {
+  // needs a constructor
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  //methods can be used
+
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey this is ${this.firstName}!`);
+  }
+}
+
+const troy = new PersonCl("Troy", 1990);
+console.log(troy);
+
+// setters and getters
+
+/*
+const account = {
+  owner: "Troy",
+  movements: [200, 300, 400, 500],
+
+  // getter
+  get latest() {
+    return this.movements.slice(-1).pop;
+  },
+  // setter has to have exactly 1 parameter
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+console.log(account.latest);
+
+account.latest = 50;
+console.log(account.movements);
+
+
+*/
