@@ -78,6 +78,11 @@ class PersonCl {
   greet() {
     console.log(`Hey this is ${this.firstName}!`);
   }
+  // not available on instances of the class just the class itself
+  static hey() {
+    console.log("Hi there!");
+    console.log(this);
+  }
 }
 
 const troy = new PersonCl("Troy", 1990);
@@ -104,6 +109,6 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
-
-
 */
+
+PersonCl.hey();
