@@ -57,32 +57,40 @@ const getCountryDataAndNeighbour = function (country) {
     });
   });
 };
-*/
 
 // modern AJAX calls
 // a promise is a container for an asychnronously delivered value
 
+const getJSON = function (url, errmsg = "Something went wrong") {
+  return fetch(url).then((response) => {
+    if (!response.ok) throw new Error(`${errmsg} ${response.status}`);
+    return response.json();
+  });
+};
+
 const getCountryData = function (country) {
-  fetch(`https://restcountries.com/v2/name/${country}`)
-    .then((response) => {
-      console.log(response);
-      if (!response.ok)
-        throw new Error(`Country does not exist ${response.status}`);
-      return response.json();
-    })
+  // Country 1
+  getJSON(
+    `https://restcountries.eu/rest/v2/name/${country}`,
+    "Country not found"
+  )
     .then((data) => {
       renderCountry(data[0]);
       const neighbour = data[0].borders[0];
-      if (!neighbour) return;
-      // neighbour country
-      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+
+      if (!neighbour) throw new Error("No neighbour found!");
+
+      // Country 2
+      return getJSON(
+        `https://restcountries.eu/rest/v2/alpha/${neighbour}`,
+        "Country not found"
+      );
     })
-    .then((response) => response.json())
+
     .then((data) => renderCountry(data, "neighbour"))
-    // error handle at end of chain with catch method
     .catch((err) => {
       console.error(`${err}`);
-      renderError(`Something went really wrong.`);
+      renderError(`Something went wrong ${err.message}. Try again!`);
     })
     .finally(() => {
       countriesContainer.style.opacity = 1;
@@ -93,4 +101,22 @@ btn.addEventListener("click", function () {
   getCountryData("mozambique");
 });
 
-getCountryData("asdf");
+getCountryData("australia");
+*/
+
+const whereAmI = function (lat, lng) {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then((res) => {
+      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(`You are in ${data.city}, ${data.country}.`);
+    })
+    .catch((err) => console.log(`${err.message} TROY`));
+};
+
+whereAmI(52.508, 13.381);
+whereAmI(-33.933, 18.474);
+whereAmI(19.037, 72.873);
